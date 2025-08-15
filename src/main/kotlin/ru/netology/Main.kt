@@ -15,8 +15,8 @@ fun agoToText(seconds: Int): String {
     val minutes = (seconds % HOUR_SECOND) / MINUTE_SECOND
 
     val result = when {
-        seconds in 0..60 -> "был(а) только что"
-        seconds in 61 until HOUR_SECOND -> "был(а) $minutes ${getMinuteDescr(minutes)} назад"
+        seconds in 0..MINUTE_SECOND -> "был(а) только что"
+        seconds in MINUTE_SECOND+1 until HOUR_SECOND -> "был(а) $minutes ${getMinuteDescr(minutes)} назад"
         seconds in HOUR_SECOND..DAY_SECOND ->
             "был(а) $hours ${getHourDescr(hours)} $minutes ${getMinuteDescr(minutes)} назад"
 
